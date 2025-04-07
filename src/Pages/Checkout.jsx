@@ -8,10 +8,14 @@ import { toast } from "react-toastify";
 
 import { clearCart } from "../Services/Slice/handleCart";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
 
 const CheckoutPage = () => {
   const cart = useSelector((state) => state.cart);
+
   const [payment, setPayment] = useState("");
+
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const handleClearCart = () => {
@@ -50,6 +54,7 @@ const CheckoutPage = () => {
         position: "top-right",
         autoClose: 2000,
       });
+      navigate("/pesanan");
     }
   };
 
