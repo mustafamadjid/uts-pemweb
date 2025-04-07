@@ -13,8 +13,9 @@ import "react-toastify/dist/ReactToastify.css";
 
 import Beranda from "./Pages/Beranda";
 import Produk from "./Pages/Produk";
-
 import Cart from "./Pages/Cart";
+import CheckoutPage from "./Pages/Checkout";
+import PesananPage from "./Pages/Pesanan";
 
 import handleCartSlice from "./Services/Slice/handleCart";
 import { getTotals } from "./Services/Slice/handleCart";
@@ -32,6 +33,14 @@ const router = createBrowserRouter([
   {
     path: "/cart",
     element: <Cart />,
+  },
+  {
+    path: "/checkout",
+    element: <CheckoutPage />,
+  },
+  {
+    path: "/pesanan",
+    element: <PesananPage />,
   },
 ]);
 

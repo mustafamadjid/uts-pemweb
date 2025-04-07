@@ -68,7 +68,7 @@ const Cart = () => {
       <div>
         {cart.cartItems.length === 0 ? (
           <>
-            <div className="padding-product flex flex-col justify-center items-center gap-10 h-svh">
+            <div className="padding-product flex flex-col justify-center items-center gap-10 h-[400px]">
               <h1 className="font-bold text-7xl  text-center animate-bounce">
                 Keranjang Kosong
               </h1>
@@ -91,23 +91,28 @@ const Cart = () => {
         )}
       </div>
 
-      <div className="flex items-center flex-col mr-10 mt-5  h-[300px] absolute right-0 max-lg:justify-center max-lg:mr-5">
-        <div className="p-5 border-b border-slate-400">
-          <h1 className="font-extrabold text-2xl">
-            Total Harga :{" "}
-            {cart.cartTotalPrice.toLocaleString("id-ID", {
-              style: "currency",
-              currency: "IDR",
-            })}
-          </h1>
-        </div>
+      {/* Total Harga */}
+      {cart.cartItems.length > 0 && (
+        <div className="flex items-center flex-col mr-10 mt-5  h-[300px] absolute right-0 max-lg:justify-center max-lg:mr-5">
+          <div className="p-5 border-b border-slate-400">
+            <h1 className="font-extrabold text-2xl">
+              Total Harga :{" "}
+              {cart.cartTotalPrice.toLocaleString("id-ID", {
+                style: "currency",
+                currency: "IDR",
+              })}
+            </h1>
+          </div>
 
-        <div>
-          <button className="bg-green-700 mt-8 hover:bg-green-800 text-white font-bold py-4 px-10 cursor-pointer rounded-md active:scale-95">
-            Checkout
-          </button>
+          <div>
+            <Link to={"/checkout"}>
+              <button className="bg-green-700 mt-8 hover:bg-green-800 text-white font-bold py-4 px-10 cursor-pointer rounded-md active:scale-95">
+                Checkout
+              </button>
+            </Link>
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="mt-100">
         <Footer />

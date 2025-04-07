@@ -1,7 +1,14 @@
 import { Link } from "react-router";
 import { useEffect, useState } from "react";
 
-import { ShoppingCart, House, ShoppingBasket, Menu, X } from "lucide-react";
+import {
+  ShoppingCart,
+  House,
+  ShoppingBasket,
+  Menu,
+  X,
+  Package,
+} from "lucide-react";
 import { UserRound } from "lucide-react";
 
 const NavbarMenu = [
@@ -16,6 +23,12 @@ const NavbarMenu = [
     title: "Produk",
     path: "/produk",
     icon: <ShoppingBasket />,
+  },
+  {
+    id: 3,
+    title: "Pesanan Anda",
+    path: "/Pesanan",
+    icon: <Package />,
   },
 ];
 
@@ -88,10 +101,6 @@ const Navbar = () => {
               <ShoppingCart size={"1.5rem"} />
               Keranjang
             </Link>
-            <Link className="flex gap-2 items-center hover:text-green-800 text-lg">
-              <UserRound size={"1.5rem"} />
-              Akun
-            </Link>
           </div>
         </div>
       </nav>
@@ -122,17 +131,13 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="">
-          <div className="flex gap-13 flex-col">
+          <div className="flex  flex-col">
             <Link
               className="flex gap-2 items-center hover:text-green-800 text-xl"
               to={"/cart"}
             >
               <ShoppingCart size={"1.5rem"} />
               Keranjang
-            </Link>
-            <Link className="flex gap-2 items-center hover:text-green-800 text-xl">
-              <UserRound size={"1.5rem"} />
-              Akun
             </Link>
           </div>
         </div>
