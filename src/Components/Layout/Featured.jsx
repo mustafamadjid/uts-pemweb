@@ -11,13 +11,13 @@ const FeaturedProducts = () => {
   const { data } = useFetch("https://dummyjson.com/products");
 
   var settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
     speed: 2000,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 4000,
     cssEase: "linear",
   };
 
@@ -30,7 +30,9 @@ const FeaturedProducts = () => {
   return (
     <>
       <div>
-        <h1 className="font-bold text-3xl mt-10">Produk Pilihan </h1>
+        <h1 className="font-bold text-3xl mt-10 max-lg:text-2xl">
+          Produk Pilihan{" "}
+        </h1>
       </div>
       <div className="slider-container">
         <Slider {...settings} className="">

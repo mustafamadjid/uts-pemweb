@@ -51,6 +51,18 @@ const brandLogo = [
     id: 12,
     src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Xiaomi_logo_%282021-%29.svg/512px-Xiaomi_logo_%282021-%29.svg.png",
   },
+  {
+    id: 13,
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Honda_Logo.svg/2000px-Honda_Logo.svg.png",
+  },
+  {
+    id: 14,
+    src: "https://www.boldestore.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.cf6c666b.png&w=3840&q=75",
+  },
+  {
+    id: 15,
+    src: "https://1000logos.net/wp-content/uploads/2017/12/Miele-logo.png",
+  },
 ];
 
 const Brand = () => {
@@ -58,7 +70,7 @@ const Brand = () => {
     dots: false,
     infinite: true,
     slidesToShow: 4,
-    slidesToScroll: 2,
+    slidesToScroll: 3,
     autoplay: true,
     speed: 3000,
     autoplaySpeed: 2000,
@@ -67,7 +79,7 @@ const Brand = () => {
   return (
     <>
       <div>
-        <h1 className="font-bold text-3xl text-center mt-10 mb-10">
+        <h1 className="font-bold text-3xl text-center mt-10 mb-10 max-lg:text-2xl">
           Pilihan Brand
         </h1>
       </div>
@@ -75,7 +87,10 @@ const Brand = () => {
         <Slider {...settings}>
           {brandLogo?.map((brand) => (
             <div key={brand?.id}>
-              <img src={brand?.src} className="h-[100px]" />
+              <img
+                src={brand?.src}
+                className="h-[100px] max-lg:h-[80px] max-lg:w-[80px] max-md:h-[60px] max-md:w-[60px] max-sm:h-[50px] max-sm:w-[50px] object-contain"
+              />
             </div>
           ))}
         </Slider>

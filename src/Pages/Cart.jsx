@@ -1,6 +1,7 @@
 import Navbar from "../Components/Fragments/Navbar/Navbar";
 import Button from "../Components/Elements/Button/Button";
 import CartTable from "../Components/Layout/cartTable";
+import Footer from "../Components/Fragments/Footer/FooterFragment";
 
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
@@ -44,7 +45,7 @@ const Cart = () => {
 
   return (
     <>
-      <div className="w-full h-[80px]">
+      <div className="w-full h-[80px] mb-20">
         <Navbar />
       </div>
       <div className="padding-product">
@@ -60,16 +61,6 @@ const Cart = () => {
               >
                 Bersihkan Keranjang
               </button>
-
-              <div className="p-5 border-b border-slate-400">
-                <h1 className="font-extrabold text-2xl">
-                  Total Harga :{" "}
-                  {cart.cartTotalPrice.toLocaleString("id-ID", {
-                    style: "currency",
-                    currency: "IDR",
-                  })}
-                </h1>
-              </div>
             </div>
           </>
         )}
@@ -98,6 +89,28 @@ const Cart = () => {
             handleClearCart={handleClearCart}
           />
         )}
+      </div>
+
+      <div className="flex items-center flex-col mr-10 mt-5  h-[300px] absolute right-0 max-lg:justify-center max-lg:mr-5">
+        <div className="p-5 border-b border-slate-400">
+          <h1 className="font-extrabold text-2xl">
+            Total Harga :{" "}
+            {cart.cartTotalPrice.toLocaleString("id-ID", {
+              style: "currency",
+              currency: "IDR",
+            })}
+          </h1>
+        </div>
+
+        <div>
+          <button className="bg-green-700 mt-8 hover:bg-green-800 text-white font-bold py-4 px-10 cursor-pointer rounded-md active:scale-95">
+            Checkout
+          </button>
+        </div>
+      </div>
+
+      <div className="mt-100">
+        <Footer />
       </div>
     </>
   );

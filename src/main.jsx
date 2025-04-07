@@ -13,7 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import Beranda from "./Pages/Beranda";
 import Produk from "./Pages/Produk";
-import Kontak from "./Pages/Kontak";
+
 import Cart from "./Pages/Cart";
 
 import handleCartSlice from "./Services/Slice/handleCart";

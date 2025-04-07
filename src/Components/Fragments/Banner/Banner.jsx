@@ -45,7 +45,7 @@ const Banner = () => {
   ];
 
   return (
-    <div className="lg:container">
+    <div className="lg:container max-lg:w-full">
       <div className="slider-container">
         <Slider {...settings}>
           {products?.map((product) => (
@@ -54,18 +54,18 @@ const Banner = () => {
                 <p className="text-sm font-inter text-[#272343] uppercase font-normal">
                   {product?.subTitle}
                 </p>
-                <h3 className="text-6xl text-[#272343] font-inter capitalize leading-16 max-w-[700px] w-ful font-bold mb-5">
+                <h3 className="text-6xl text-[#272343] font-inter capitalize leading-16 max-w-[700px] w-ful font-bold mb-5 max-lg:text-xl max-lg:leading-7">
                   {product?.title}
                 </h3>
                 <Link to="/produk">
-                  <Button variant=" bg-green-800 hover:bg-green-700 hover:gap-5 hover:duration-400 hover:ease-in-out hover:transition-all">
+                  <Button variant=" bg-green-800 hover:bg-green-700 hover:gap-5 hover:duration-400 hover:ease-in-out hover:transition-all max-lg: max-lg:text-xs  max-lg:h-11 max-lg:w-3/4 ">
                     Belanja Sekarang <MoveRight />
                   </Button>
                 </Link>
               </div>
               <div className="banner-image-2  bg-[#f0f2f3] w-full h-full flex items-center justify-end">
                 <img
-                  className="h-100 mix-blend-multiply"
+                  className="h-100 mix-blend-multiply max-lg:w-3/4 max-lg:h-3/4"
                   src={product?.image}
                   alt={product?.title}
                 />

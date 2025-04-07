@@ -18,11 +18,11 @@ const CardProduct = ({ product, onAddToCart, wrapVariant, titleVariant }) => {
         <div className="flex justify-between">
           <div>
             <div
-              className={`font-semibold text-[18px] text-[#272343] ${titleVariant}`}
+              className={`font-semibold text-[18px] text-[#272343] ${titleVariant} max-lg:text-xs`}
             >
               {product?.title}
             </div>
-            <div>
+            <div className="max-lg:text-xs">
               {product?.price.toLocaleString("id-ID", {
                 style: "currency",
                 currency: "IDR",
@@ -30,9 +30,9 @@ const CardProduct = ({ product, onAddToCart, wrapVariant, titleVariant }) => {
             </div>
           </div>
           <div className="shop cart">
-            <div className="bg-green-600 p-2 rounded-md cursor-pointer hover:bg-green-500">
+            <div className="bg-green-600 p-2 rounded-md cursor-pointer hover:bg-green-500 ">
               <ShoppingCart
-                className="text-white"
+                className="text-white msm max-lg:w-3 max-lg:h-3"
                 onClick={() => onAddToCart(product)}
               />
             </div>
