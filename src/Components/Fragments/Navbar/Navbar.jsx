@@ -15,11 +15,6 @@ const NavbarMenu = [
     title: "Produk",
     path: "/produk",
   },
-  {
-    id: 3,
-    title: "Kontak",
-    path: "/kontak",
-  },
 ];
 
 const Navbar = () => {
@@ -52,12 +47,12 @@ const Navbar = () => {
         </div>
 
         <div>
-          <ul className="flex gap-4 items-center">
+          <ul className="flex gap-5 ml-15">
             {NavbarMenu.map((menu) => {
               return (
                 <li key={menu.id}>
                   <Link to={menu.path} className="hover:text-green-800">
-                    <div>{menu.title}</div>
+                    <div className="text-lg">{menu.title}</div>
                   </Link>
                 </li>
               );
@@ -67,14 +62,14 @@ const Navbar = () => {
         <div>
           <div className="flex gap-3 items-center">
             <Link
-              className="flex gap-2 items-center hover:text-green-800"
+              className="flex gap-2 items-center hover:text-green-800 text-lg"
               to={"/cart"}
             >
-              <ShoppingCart />
+              <ShoppingCart size={"1.5rem"} />
               Keranjang
             </Link>
-            <Link className="flex gap-2 items-center hover:text-green-800">
-              <UserRound />
+            <Link className="flex gap-2 items-center hover:text-green-800 text-lg">
+              <UserRound size={"1.5rem"} />
               Akun
             </Link>
           </div>

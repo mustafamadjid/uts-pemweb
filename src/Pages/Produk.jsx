@@ -3,22 +3,49 @@ import useFetch from "../Services/Hooks/customFetch";
 import { useState } from "react";
 
 import CardComplete from "../Components/Fragments/CardProduct/CardComplete";
-
 import Navbar from "../Components/Fragments/Navbar/Navbar";
-import Slider from "react-slick";
+
+import { useDispatch } from "react-redux";
+import { addToCart } from "../Services/Slice/handleCart";
 
 const Produk = () => {
   const [url, setUrl] = useState("https://dummyjson.com/products");
 
   const categoryData = useFetch("https://dummyjson.com/products/categories");
   const productsData = useFetch(url);
+
+  const dispatch = useDispatch();
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
+
+  const loadingContent = () => {
+    if (productsData.loading === true) {
+      return (
+        <div className="flex items-center justify-center h-screen">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
+        </div>
+      );
+    } else {
+      return productsData.data?.products.map((product) => (
+        <CardComplete
+          key={product.id}
+          product={product}
+          wrapVariant={"max-w-xs"}
+          titleVariant={"w-3/4"}
+          onAddToCart={handleAddToCart}
+        />
+      ));
+    }
+  };
   return (
     <>
       <div className="w-full h-[80px]">
         <Navbar />
       </div>
 
-      <div className="wrapper w-full  padding-product flex gap-2.5 flex-row">
+      <div className="wrapper w-full  padding-product flex gap-2.5 flex-row ">
         {/* Categories Component*/}
         <div className="bg-gray-100  p-10 flex flex-col gap-7 ">
           <h1
@@ -42,16 +69,9 @@ const Produk = () => {
         </div>
 
         {/* Product Component*/}
-        <div className="max-h-screen padding-nav flex flex-col items-center gap-5 basis-5/6 overflow-auto">
-          <div className="flex flex-row flex-wrap  gap-5 items-center ">
-            {productsData.data?.products.map((product) => (
-              <CardComplete
-                key={product.id}
-                product={product}
-                wrapVariant={"max-w-xs"}
-                titleVariant={"w-3/4"}
-              />
-            ))}
+        <div className="max-h-screen padding-nav flex flex-col items-center gap-5 basis-3/4 overflow-auto">
+          <div className="flex flex-row flex-wrap justify-center gap-18 items-center ">
+            {loadingContent()}
           </div>
         </div>
       </div>

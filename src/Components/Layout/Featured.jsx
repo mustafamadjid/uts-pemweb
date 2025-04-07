@@ -4,10 +4,11 @@ import Slider from "react-slick";
 
 import useFetch from "../../Services/Hooks/customFetch";
 
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../Services/Slice/handleCart";
+
 const FeaturedProducts = () => {
-  const { data } = useFetch(
-    "https://dummyjson.com/products?limit=10&skip=2&select=title,price,images"
-  );
+  const { data } = useFetch("https://dummyjson.com/products");
 
   var settings = {
     dots: true,
@@ -18,6 +19,12 @@ const FeaturedProducts = () => {
     speed: 2000,
     autoplaySpeed: 2000,
     cssEase: "linear",
+  };
+
+  const dispatch = useDispatch();
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
   };
 
   return (
@@ -34,6 +41,7 @@ const FeaturedProducts = () => {
               product={product}
               wrapVariant={"max-w-sm"}
               titleVariant={"w-full"}
+              onAddToCart={handleAddToCart}
             />
           ))}
           {/* </div> */}

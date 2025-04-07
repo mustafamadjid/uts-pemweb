@@ -10,7 +10,7 @@ const Manfaat = () => {
         <div className="manfaat-wrapper flex items-center justify-center gap-10">
           <div className="flex items-center gap-4">
             <p>
-              <Truck size="3rem" />
+              <Truck size="3rem" className="hover:animate-bounce " />
             </p>
             <div>
               <h4 className="text-base text-[#272343] capitalize font-inter  font-medium mb-2.5">
@@ -23,7 +23,7 @@ const Manfaat = () => {
           </div>
           <div className="flex items-center gap-4">
             <p>
-              <Percent size="3rem" />
+              <Percent size="3rem" className="hover:animate-bounce " />
             </p>
             <div>
               <h4 className="text-base text-[#272343] capitalize font-inter  font-medium mb-2.5">
@@ -36,7 +36,7 @@ const Manfaat = () => {
           </div>
           <div className="flex items-center gap-4">
             <p>
-              <Clock size="3rem" />
+              <Clock size="3rem" className="hover:animate-bounce " />
             </p>
             <div>
               <h4 className="text-base text-[#272343] capitalize font-inter  font-medium mb-2.5">
@@ -49,7 +49,7 @@ const Manfaat = () => {
           </div>
           <div className="flex items-center gap-4">
             <p>
-              <HandCoins size="3rem" />
+              <HandCoins size="3rem" className="hover:animate-bounce " />
             </p>
             <div>
               <h4 className="text-base text-[#272343] capitalize font-inter  font-medium mb-2.5">

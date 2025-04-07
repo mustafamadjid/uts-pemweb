@@ -31,7 +31,10 @@ const CardProduct = ({ product, onAddToCart, wrapVariant, titleVariant }) => {
           </div>
           <div className="shop cart">
             <div className="bg-green-600 p-2 rounded-md cursor-pointer hover:bg-green-500">
-              <ShoppingCart className="text-white" onClick={onAddToCart} />
+              <ShoppingCart
+                className="text-white"
+                onClick={() => onAddToCart(product)}
+              />
             </div>
           </div>
         </div>
